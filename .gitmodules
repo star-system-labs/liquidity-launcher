@@ -6,7 +6,7 @@
 	url = git@github.com:OpenZeppelin/openzeppelin-contracts.git
 [submodule "lib/permit2"]
 	path = lib/permit2
-	url = git@github.com:Uniswap/permit2.git
+	url = https://github.com/Uniswap/permit2.git
 [submodule "lib/v4-core"]
 	path = lib/v4-core
 	url = https://github.com/Uniswap/v4-core.git
@@ -22,3 +22,10 @@
 [submodule "lib/twap-auction"]
 	path = lib/twap-auction
 	url = https://github.com/Uniswap/twap-auction
+[submodule "lib/merkle-distributor"]
+	path = lib/merkle-distributor
+	url = https://github.com/Uniswap/merkle-distributor
+[submodule "lib/openzeppelin-contracts-4.7"]
+	path = lib/openzeppelin-contracts-4.7
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts.git
+	branch = v4.7.3
