@@ -11,10 +11,12 @@ import {Math} from "@openzeppelin-latest/contracts/utils/math/Math.sol";
 /// @dev Handles conversions between different price representations and calculates swap amounts
 library TokenPricing {
     /// @notice Thrown when price is invalid (0 or out of bounds)
+    /// @param price The invalid price in Q96 format in terms of currency1/currency0
     error InvalidPrice(uint256 price);
 
     /// @notice Thrown when calculated amount exceeds uint128 max value
-    error AmountOverflow();
+    /// @param currencyAmount The invalid currency amount
+    error AmountOverflow(uint256 currencyAmount);
 
     /// @notice Q192 format: 192-bit fixed-point number representation
     /// @dev Used for intermediate calculations to maintain precision
@@ -88,7 +90,7 @@ library TokenPricing {
                 : FullMath.mulDiv(priceX192, reserveSupply, Q192);
 
             if (correspondingCurrencyAmountUint256 > type(uint128).max) {
-                revert AmountOverflow();
+                revert AmountOverflow(correspondingCurrencyAmountUint256);
             }
 
             correspondingCurrencyAmount = uint128(correspondingCurrencyAmountUint256);

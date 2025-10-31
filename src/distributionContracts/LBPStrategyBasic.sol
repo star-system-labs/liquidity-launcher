@@ -18,7 +18,7 @@ import {IPositionManager} from "@uniswap/v4-periphery/src/interfaces/IPositionMa
 import {SafeERC20} from "@openzeppelin-latest/contracts/token/ERC20/utils/SafeERC20.sol";
 import {IERC20} from "@openzeppelin-latest/contracts/token/ERC20/IERC20.sol";
 import {IDistributionContract} from "../interfaces/IDistributionContract.sol";
-import {MigratorParameters} from "../types/MigratorParams.sol";
+import {MigratorParameters} from "../types/MigratorParameters.sol";
 import {ILBPStrategyBasic} from "../interfaces/ILBPStrategyBasic.sol";
 import {HookBasic} from "../utils/HookBasic.sol";
 import {TickCalculations} from "../libraries/TickCalculations.sol";
@@ -45,7 +45,7 @@ contract LBPStrategyBasic is ILBPStrategyBasic, HookBasic {
     /// @notice The currency that the auction raised funds in
     address public immutable currency;
 
-    /// @notice The LP fee that the v4 pool will use
+    /// @notice The LP fee that the v4 pool will use expressed in hundredths of a bip (1e6 = 100%)
     uint24 public immutable poolLPFee;
     /// @notice The tick spacing that the v4 pool will use
     int24 public immutable poolTickSpacing;
